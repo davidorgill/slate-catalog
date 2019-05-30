@@ -2,6 +2,9 @@
 # used to manage multiple instances of the same application
 Instance: default
 
+# Select the node for the Pod to run on
+NodeSelector:
+
 # Settings realted to interfacing with the Open Science Grid
 CE:
   SiteName: 
@@ -34,6 +37,15 @@ RemoteHost:
   # The name of a secret containing the private SSH key used to connect to the batch system
   # (The key data should be stored under the name 'private_key' in the secret)
   PrivateKeySecret: 
+
+# Host Certificate
+Host:
+  # The name of a secret containing the host certificate and private key
+  # The key data should be stored under:
+  # cert and private_key
+  hostCertificateSecret:
+
+
 
 # Information about the batch system
 Cluster: |-
