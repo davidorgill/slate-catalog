@@ -21,7 +21,7 @@ After installing the dependency requirements and pulling the SLATElite repositor
 //////////////////////////////////////////////////////////////////.
 
 
-##Deploying Check-mk in your kubernetes cluster once you've established your cluster
+##Deploying Check-mk in your kubernetes cluster
 
 Clone the [slateci/slate-catalog](https://github.com/slateci/slate-catalog) repository on the machine you are running your Kubernestes cluster on.
 
@@ -37,6 +37,31 @@ In order to set up the dashboard that you will be running to monitor your cluste
 
 `echo http://$NODE_IP:$NODE_PORT/cmk/check_mk`
 
+Open the URL that is given to you in your default web browser which will lead you to the login for you check-mk dashboard.
+
+To access the login information you will need to run the following commands:
+
+`kubectl get pods`
+
+Copy the name of the check-mk pod which will be in the form 'check-mk-global-ID'. An example is check-mk-global-4d2f86d99c-swdnt. With this information run the folloing command, pasting in the name you just received:
+
+`kubectl logs <checkmk_pod_name>`
+
+The logs provides the given username and password. Enter those into your dashboard in your web browser you opened up earlier and you will have access to start monitoring from the dashboard. Note that you have the abolity to change the password by following the instructions provided in the logs.
+
+##Setting up Monitoring on your Kubernetes Cluster
+
+Check-mk provides the necessary steps for setting up monitoring on your kubernetes cluster. There are some additional steps needed that aren't provided in check-mk's documentation so make sure to read the provided guidelines before starting because they work in tandem with check-mk's steps.
+
+
+While logged into your cluster download the source code provided at [Check-mk Downloads](https://checkmk.com/download-source.php?). Make sure to download the most recent stable version. Also, make sure it is the complate source code of Check-mk with OMD. This will coincide with the version that is provided in Helm's earlier deployment and will help prevent further issues. Once the dowload is complete, extract all the files through the command:
+
+`tar -zxvf <your_checkmk-rawedition-1.5.tar.gz>`
+
+Now that you have downloaded the source code you are ready to start check-mk's walk through for [Monitoring Kubernetes](https://checkmk.com/cms_monitoring_kubernetes.html). Again, make sure to refer to the guidelines to simply the process.
+
+
+**Additional guidelines for setting up Check-mk:**
 
 
 
