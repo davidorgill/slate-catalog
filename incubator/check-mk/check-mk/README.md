@@ -18,10 +18,16 @@ After installing the dependency requirements and pulling the SLATElite repositor
 
 //////////////////////////////////////////////////////////////////
 ////////Everything that is requires to get slate up and going///
-//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////.
+
 
 ##Deploying Check-mk in your kubernetes cluster once you've established your cluster
+
 Clone the [slateci/slate-catalog](https://github.com/slateci/slate-catalog) repository on the machine you are running your Kubernestes cluster on.
-cd into your slate-catalog/incubator/check-mk/check-mk directory. At this point you will need to deploy the check-mk application within Kubernetes. To do this run `helm install check-mk'Helm manages the deployement of check-mk.
-Run `kubectl get pods` to ensure that the check-mk application is now running on your cluster.
+
+cd into your slate-catalog/incubator/check-mk/check-mk directory. At this point you will need to deploy the check-mk application within Kubernetes. To do this run `helm install check-mk`.Helm manages the deployement of check-mk.
+
+Run `kubectl get pods` to ensure that the check-mk application is now running on your cluster. You should see a pod that has been deployed and is running check-mk.
+
+
 
