@@ -29,10 +29,15 @@ cd into your slate-catalog/incubator/check-mk/check-mk directory. At this point 
 
 Run `kubectl get pods` to ensure that the check-mk application is now running on your cluster. You should see a pod that has been deployed and is running check-mk.
 
-In order to set up the dashboard that you will be running to monitor your cluster you need to run the following commands
+In order to set up the dashboard that you will be running to monitor your cluster you need to run the following commands:
+
 `export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services check-mk-global)`
+
 `export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}")`
+
 `echo http://$NODE_IP:$NODE_PORT/cmk/check_mk`
+
+
 
 
 
