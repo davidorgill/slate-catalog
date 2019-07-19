@@ -24,7 +24,7 @@ After installing the dependency requirements and pulling the SLATElite repositor
 -------------I may also need to check this within SLATE and installing it through slate rather than kubectl
 --------------------
 
-
+///////////////////////------------//////////
 
 ## Deploying Check-mk in your kubernetes cluster
 
