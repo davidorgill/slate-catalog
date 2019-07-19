@@ -20,12 +20,6 @@ After installing the dependency requirements and pulling the SLATElite repositor
 ////////Everything that is requires to get slate up and going///
 //////////////////////////////////////////////////////////////////.
 
-
--------------I may also need to check this within SLATE and installing it through slate rather than kubectl
---------------------
-
-///////////////////////------------//////////
-
 ## Deploying Check-mk in your kubernetes cluster
 
 Clone the [slateci/slate-catalog](https://github.com/slateci/slate-catalog) repository on the machine you are running your Kubernestes cluster on.
@@ -67,7 +61,7 @@ Now that you have downloaded the source code you are ready to start check-mk's w
 
 
 
-**Additional guidelines for setting up Check-mk:**
+## Additional guidelines for setting up Check-mk:
 
 The rbac.yaml file with be found in the check-mk-raw-1.5.0p19.cre/doc/treasures/kubernetes directory. Not the one it lists on the walk-through.
 
@@ -76,11 +70,4 @@ In section 2.4. Adding a Kubernetes-Cluster to the Monitoring you will be puttin
 After defining the port and saving the password token you need to add a host. You are going to be adding the kubernetes cluster to your monitoring topology. To accomplish this go to "WATO" in the left side bar and click "Hosts". Once there click "Create new host". The host name is the IP adress that the cluster is running on. you can get this information by running the command: `kubectl cluster-info`. Make sure to leave the port number off since it was already definied in the rule. In the "Data Sources" portion check the "Check_MK Agent". Now click "Save & go the Services" at the bottom of the page. At this point you will now recognize the services offered by check-mk on your cluster. 
 
 Determine which services you would like to monitor and click the "Monitor" button at the top. The changes you have made have not been saved and applied to your monitoring topology as a whole. To do this you need to click the "changes" button at the top with a warning sign. It will indicate the number of changes you have made. it is important to click "Activate affected" or your changes will not be monitored.
-
-
-
-
-
-
-
 
