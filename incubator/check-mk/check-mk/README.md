@@ -1,5 +1,5 @@
-# Check-mk
-This project provides monitoring services for a kubernetes cluster with [SLATE](http://slateci.io/).
+# Check-mkhttps://www.centos.org/
+This project provides monitoring services for a kubernetes cluster with [SLATE](http://slateci.io/). It will also be beneficial to read over the [Checkmk-Official Guide](https://checkmk.com/cms.html) for reference to using the online dashboard.
 
 ## Minimum Requirements - - - - - I may need to update this based on slate application
 - Linux (2 cores, 4GB memory, 15GB storage) or MacOS
@@ -21,7 +21,7 @@ After installing the dependency requirements and pulling the SLATElite repositor
 //////////////////////////////////////////////////////////////////.
 
 
-##Deploying Check-mk in your kubernetes cluster
+## Deploying Check-mk in your kubernetes cluster
 
 Clone the [slateci/slate-catalog](https://github.com/slateci/slate-catalog) repository on the machine you are running your Kubernestes cluster on.
 
@@ -49,7 +49,7 @@ Copy the name of the check-mk pod which will be in the form 'check-mk-global-ID'
 
 The logs provides the given username and password. Enter those into your dashboard in your web browser you opened up earlier and you will have access to start monitoring from the dashboard. Note that you have the abolity to change the password by following the instructions provided in the logs.
 
-##Setting up Monitoring on your Kubernetes Cluster
+## Setting up Monitoring on your Kubernetes Cluster
 
 Check-mk provides the necessary steps for setting up monitoring on your kubernetes cluster. There are some additional steps needed that aren't provided in check-mk's documentation so make sure to read the provided guidelines before starting because they work in tandem with check-mk's steps.
 
@@ -58,10 +58,22 @@ While logged into your cluster download the source code provided at [Check-mk Do
 
 `tar -zxvf <your_checkmk-rawedition-1.5.tar.gz>`
 
-Now that you have downloaded the source code you are ready to start check-mk's walk through for [Monitoring Kubernetes](https://checkmk.com/cms_monitoring_kubernetes.html). Again, make sure to refer to the guidelines to simply the process.
+Now that you have downloaded the source code you are ready to start check-mk's walk through for [Monitoring Kubernetes](https://checkmk.com/cms_monitoring_kubernetes.html). Again, make sure to refer to the guidelines below to simply the process.
+
 
 
 **Additional guidelines for setting up Check-mk:**
+
+The rbac.yaml file with be found in the check-mk-raw-1.5.0p19.cre/doc/treasures/kubernetes directory. Not the one it lists on the walk-through.
+
+In section 2.4. Adding a Kubernetes-Cluster to the Monitoring you will be putting in a password token. The documentation doesn't specify to to click the Port button, but it is necessary to do so, otherwise the cluster can not be accessed. Make sure to define the port as 6443.
+
+After defining the port and saving the password token you need to add a host. You are going to be adding the kubernetes cluster to your monitoring topology. To accomplish this go to "WATO" in the left side bar and click "Hosts". Once there click "Create new host". The host name is the IP adress that the cluster is running on. you can get this information by running the command: `kubectl cluster-info`. Make sure to leave the port number off since it was already definied in the rule. In the "Data Sources" portion check the "Check_MK Agent". Now click "Save & go the Services" at the bottom of the page. At this point you will now recognize the services offered by check-mk on your cluster. 
+
+Determine which services you would like to monitor and click the "Monitor" button at the top. The changes you have made have not been saved and applied to your monitoring topology as a whole. To do this you need to click the "changes" button at the top with a warning sign. It will indicate the number of changes you have made. it is important to click "Activate affected" or your changes will not be monitored.
+
+
+
 
 
 
