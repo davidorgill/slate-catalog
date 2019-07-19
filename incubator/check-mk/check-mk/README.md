@@ -1,4 +1,4 @@
-# Check-mkhttps://www.centos.org/
+# Monitoring Kubernetes in Check-mk
 This project provides monitoring services for a kubernetes cluster with [SLATE](http://slateci.io/). It will also be beneficial to read over the [Checkmk-Official Guide](https://checkmk.com/cms.html) for reference to using the online dashboard.
 
 ## Minimum Requirements - - - - - I may need to update this based on slate application
