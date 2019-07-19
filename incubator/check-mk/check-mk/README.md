@@ -57,7 +57,7 @@ While logged into your cluster download the source code provided at [Check-mk Do
 
 `tar -zxvf <your_checkmk-rawedition-1.5.tar.gz>`
 
-Now that you have downloaded the source code you are ready to start check-mk's walk through for [Monitoring Kubernetes](https://checkmk.com/cms_monitoring_kubernetes.html). Again, make sure to refer to the guidelines below to simply the process.
+Now that you have downloaded the source code you are ready to start check-mk's walk through for [Monitoring Kubernetes](https://checkmk.com/cms_monitoring_kubernetes.html). Again, make sure to refer to the guidelines below to simplify the process.
 
 
 
