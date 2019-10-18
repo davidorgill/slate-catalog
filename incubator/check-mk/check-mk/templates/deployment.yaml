@@ -8,6 +8,11 @@ metadata:
     release: {{ .Release.Name }}
 spec:
   replicas: {{ .Values.replicaCount }}
+  selector: 
+    matchLebels:
+      app: {{ template "check-mk.name" . }}
+      chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+      release: {{ .Release.Name }}
   template:
     metadata:
       labels:
